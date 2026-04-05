@@ -1,0 +1,31 @@
+{
+  "electionDate": "2026-05-02",
+  "electionName": "City of Jersey Village General Election",
+  "earlyVoting": {
+    "start": "2026-04-20",
+    "end": "2026-04-28",
+    "locations": [
+      {
+        "name": "Jersey Village City Hall",
+        "address": "16327 Lakeview Dr, Jersey Village, TX 77040",
+        "hours": "7:00 AM - 7:00 PM"
+      }
+    ]
+  },
+  "electionDay": {
+    "locations": [
+      {
+        "name": "Jersey Village City Hall",
+        "address": "16327 Lakeview Dr, Jersey Village, TX 77040",
+        "hours": "7:00 AM - 7:00 PM"
+      }
+    ]
+  },
+  "voterInfo": {
+    "registrationDeadline": "2026-04-02",
+    "registrationUrl": "https://www.votetexas.gov/register-to-vote/",
+    "countyElectionsUrl": "https://www.harrisvotes.com/",
+    "voterIdRequirements": "Texas requires a valid photo ID to vote. Acceptable forms include Texas driver's license, Texas personal ID card, Texas Election ID Certificate, US passport, or US military ID."
+  },
+  "disclaimer": "This website is an independent, nonpartisan voter information resource. It is not affiliated with, endorsed by, or funded by the City of Jersey Village, any candidate, or any political party. Information is provided for educational purposes only."
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jersey Village 2026 Election Guide</title>
+  <meta name="description" content="Nonpartisan voter guide for the May 2, 2026 City of Jersey Village general election. Candidate information, positions, and social media activity.">
+  <meta property="og:title" content="Jersey Village 2026 Election Guide">
+  <meta property="og:description" content="Nonpartisan voter guide for the May 2, 2026 Jersey Village general election.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Jersey Village 2026 Election Guide</h1>
+      <div class="countdown" id="countdown"></div>
+      <p class="disclaimer-banner" id="disclaimer-banner"></p>
+    </div>
+  </header>
+
+  <nav class="race-nav" role="tablist" aria-label="Election races">
+    <div class="container">
+      <div class="race-tabs" id="race-tabs"></div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section id="race-view" class="view" role="tabpanel">
+      <div class="candidate-tabs" id="candidate-tabs" role="tablist" aria-label="Candidates"></div>
+      <div class="candidate-detail" id="candidate-detail">
+        <div class="detail-tabs" id="detail-tabs" role="tablist" aria-label="Candidate information"></div>
+        <div class="detail-panel" id="detail-panel"></div>
+      </div>
+    </section>
+
+    <section id="proposition-view" class="view hidden" role="tabpanel">
+      <div id="proposition-content"></div>
+    </section>
+
+    <section id="election-info-view" class="view hidden" role="tabpanel">
+      <div id="election-info-content"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="disclaimer" id="footer-disclaimer"></p>
+      <p class="attribution">Data is updated daily. Candidate social media summaries are generated using AI and may not capture all activity.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

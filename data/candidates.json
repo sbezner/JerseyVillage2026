@@ -1,0 +1,153 @@
+{
+  "races": [
+    {
+      "id": "place-1",
+      "title": "City Council Place 1",
+      "candidates": [
+        {
+          "id": "michael-brittain",
+          "name": "Michael Brittain",
+          "photo": null,
+          "bio": "Placeholder biography for Michael Brittain. Information will be updated as it becomes available.",
+          "positions": [
+            {
+              "topic": "Public Safety",
+              "statement": "Position on public safety to be updated."
+            },
+            {
+              "topic": "Infrastructure",
+              "statement": "Position on infrastructure to be updated."
+            },
+            {
+              "topic": "Budget & Taxes",
+              "statement": "Position on budget and taxes to be updated."
+            }
+          ],
+          "contact": {
+            "email": null,
+            "website": null,
+            "facebook": null,
+            "twitter": null
+          }
+        },
+        {
+          "id": "curt-beasley",
+          "name": "Curt Beasley",
+          "photo": null,
+          "bio": "Placeholder biography for Curt Beasley. Information will be updated as it becomes available.",
+          "positions": [
+            {
+              "topic": "Public Safety",
+              "statement": "Position on public safety to be updated."
+            },
+            {
+              "topic": "Infrastructure",
+              "statement": "Position on infrastructure to be updated."
+            },
+            {
+              "topic": "Budget & Taxes",
+              "statement": "Position on budget and taxes to be updated."
+            }
+          ],
+          "contact": {
+            "email": null,
+            "website": null,
+            "facebook": null,
+            "twitter": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "place-4",
+      "title": "City Council Place 4",
+      "candidates": [
+        {
+          "id": "connie-rossi",
+          "name": "Connie Rossi",
+          "photo": null,
+          "unopposed": true,
+          "bio": "Placeholder biography for Connie Rossi. Information will be updated as it becomes available.",
+          "positions": [
+            {
+              "topic": "Public Safety",
+              "statement": "Position on public safety to be updated."
+            },
+            {
+              "topic": "Infrastructure",
+              "statement": "Position on infrastructure to be updated."
+            },
+            {
+              "topic": "Budget & Taxes",
+              "statement": "Position on budget and taxes to be updated."
+            }
+          ],
+          "contact": {
+            "email": null,
+            "website": null,
+            "facebook": null,
+            "twitter": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "place-5",
+      "title": "City Council Place 5",
+      "candidates": [
+        {
+          "id": "brian-mccauley",
+          "name": "Brian McCauley",
+          "photo": null,
+          "bio": "Placeholder biography for Brian McCauley. Information will be updated as it becomes available.",
+          "positions": [
+            {
+              "topic": "Public Safety",
+              "statement": "Position on public safety to be updated."
+            },
+            {
+              "topic": "Infrastructure",
+              "statement": "Position on infrastructure to be updated."
+            },
+            {
+              "topic": "Budget & Taxes",
+              "statement": "Position on budget and taxes to be updated."
+            }
+          ],
+          "contact": {
+            "email": null,
+            "website": null,
+            "facebook": null,
+            "twitter": null
+          }
+        },
+        {
+          "id": "steven-gill",
+          "name": "Steven Gill",
+          "photo": null,
+          "bio": "Placeholder biography for Steven Gill. Information will be updated as it becomes available.",
+          "positions": [
+            {
+              "topic": "Public Safety",
+              "statement": "Position on public safety to be updated."
+            },
+            {
+              "topic": "Infrastructure",
+              "statement": "Position on infrastructure to be updated."
+            },
+            {
+              "topic": "Budget & Taxes",
+              "statement": "Position on budget and taxes to be updated."
+            }
+          ],
+          "contact": {
+            "email": null,
+            "website": null,
+            "facebook": null,
+            "twitter": null
+          }
+        }
+      ]
+    }
+  ]
+}
