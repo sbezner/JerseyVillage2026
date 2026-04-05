@@ -1,21 +1,24 @@
 {
   "id": "proposition-a",
   "title": "Proposition A",
-  "subtitle": "Harris County Emergency Services District No. 20 — 20-Year Renewal",
-  "summary": "Proposition A asks voters to approve a 20-year renewal of the existing emergency services district that provides fire and emergency medical services to the City of Jersey Village.",
+  "subtitle": "City of Jersey Village Fire Control, Prevention, and Emergency Medical Services District — 20-Year Renewal",
+  "summary": "Proposition A asks voters whether to continue the existing fire control, prevention, and emergency medical services district for 20 years, and whether the district's 0.5% sales tax should also be continued for 20 years. This is a special joint election with the City of Jersey Village.",
   "details": [
-    "This is a renewal of the existing district, not a new tax.",
-    "The district currently provides fire protection and emergency medical services to Jersey Village residents.",
+    "This is a renewal of the existing district and its 0.5% sales tax, not a new tax.",
+    "The 0.5% district sales tax replaced a prior 0.5% property tax relief sales tax.",
+    "The district currently funds fire protection and emergency medical services, including 12 full-time firefighters.",
     "Approval continues current fire and EMS service levels for an additional 20 years."
   ],
   "forArguments": [
     "Maintains current fire and emergency response capabilities without interruption.",
     "No increase in the existing tax rate — this renews the current arrangement.",
-    "Ensures continued professional fire and EMS coverage for the community."
+    "Ensures continued professional fire and EMS coverage, including 12 full-time firefighters.",
+    "The district sales tax funds are dedicated solely to fire and emergency services."
   ],
   "againstArguments": [
     "Commits the city to a 20-year term with limited ability to renegotiate.",
     "Some residents prefer shorter renewal periods for more frequent public review.",
-    "Long-term commitments reduce flexibility to explore alternative service models."
+    "Long-term commitments reduce flexibility to explore alternative service models, such as contracting with neighboring fire departments.",
+    "Locks in a 0.5% sales tax rate for two decades regardless of future fiscal conditions."
   ]
 }

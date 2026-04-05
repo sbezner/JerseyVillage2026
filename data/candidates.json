@@ -10,19 +10,19 @@
           "name": "Michael Brittain",
           "photo": null,
           "incumbent": false,
-          "bio": "Managing Partner at Selrico Communications LLC, a fiber optic and structured cabling company serving government entities including Harris County and the City of Houston. Co-founded the predecessor company in 2003. Former firefighter and EMT-B at the Jersey Village Fire Department. Has over 20 years of experience in construction and land development.",
+          "bio": "Co-Founder, CEO, and Managing Partner of Selrico Communications LLC, a fiber optic and structured cabling company serving government clients including Harris County and the City of Houston. Co-founded the predecessor company (Cricket Fiber Services) in 2003, which merged into Selrico Communications in 2004. Former firefighter and EMT-B at the Jersey Village Fire Department. Has over 20 years of experience in construction and land development.",
           "positions": [
             {
-              "topic": "Public Safety & Emergency Services",
-              "statement": "Believes strong economic development is required to ensure Police, Fire, and EMS are properly funded through local business sales tax revenue. Draws on his background as a former Jersey Village firefighter and EMT."
+              "topic": "Emergency Services & Public Safety",
+              "statement": "Top priority. Believes strong economic development is required to ensure Police, Fire, and EMS are properly funded through local business sales tax revenue. Draws on his background as a former Jersey Village firefighter and EMT."
             },
             {
-              "topic": "Fiscal Responsibility",
-              "statement": "Plans to use his construction and land development experience to oversee the new City Hall remodel and building a city pool. Has raised concerns about city spending on capital projects, including the City Hall remodel and the golf clubhouse/convention center project."
+              "topic": "Growth & Infrastructure",
+              "statement": "Sees balancing economic growth with infrastructure needs while protecting the character of the community as the biggest challenge facing Jersey Village."
             },
             {
               "topic": "Transparency & Communication",
-              "statement": "Supports maintaining a dedicated communications director, open communications with residents, public participation in meetings, and clear communication of decisions and financial information across multiple platforms."
+              "statement": "Will work with City Council and city secretary to maintain the dedicated communications director, support open communications with residents, encourage public participation in meetings, and ensure decisions and financial information are communicated across multiple platforms."
             }
           ],
           "contact": {
@@ -37,15 +37,19 @@
           "name": "Curt Beasley",
           "photo": null,
           "incumbent": false,
-          "bio": "Construction Area Manager at D.R. Horton, one of the nation's largest homebuilders, based in Houston. Has over 20 years of experience in construction and land development. Resident of Jersey Village.",
+          "bio": "Construction Area Manager at D.R. Horton, one of the nation's largest homebuilders, based in Houston. Also associated with Spottswoode Homes LLC. Has over 20 years of experience in construction and land development. Resident of Jersey Village.",
           "positions": [
             {
-              "topic": "Financial Reserves & Maintenance",
-              "statement": "Will work with City Council to maintain strong financial reserves while prioritizing preventive maintenance and infrastructure projects before issues arise."
+              "topic": "Fiscal Responsibility",
+              "statement": "Top priority. Plans to use his land development and construction experience to oversee the City Hall remodel and the building of a city pool. Has raised serious concerns about city overspending — cites the golf clubhouse/convention center project, which he says exceeded its $9 million budget by $5 million. Wants to request a forensic accountant and construction professional to review payments on that project."
             },
             {
-              "topic": "Decision-Making Approach",
-              "statement": "Will listen to residents, fellow council members, and the City Manager while focusing on costs, return on investment, and long-term data. Aims for practical, collaborative solutions that serve the best interests of Jersey Village."
+              "topic": "City Spending & Vendor Processes",
+              "statement": "Believes the processes the city uses to find vendors for construction projects are 'severely flawed' and need to be fixed. Says the current City Hall remodel estimate is more than triple what it should cost. Stopping overspending is a key focus."
+            },
+            {
+              "topic": "Financial Reserves & Maintenance",
+              "statement": "Will work with City Council to maintain strong financial reserves while prioritizing preventive maintenance and infrastructure projects before issues arise. Focuses on costs, return on investment, and long-term data when making decisions."
             }
           ],
           "contact": {
@@ -68,15 +72,23 @@
           "photo": null,
           "incumbent": true,
           "unopposed": true,
-          "bio": "Current City Council Member for Place 4, first elected in May 2024 with 57.8% of the vote. Legal assistant for a leading firm representing municipal utility districts (MUDs) and water districts. Former public school educator with 15 years of experience in education and legal assistance.",
+          "bio": "Current City Council Member for Place 4, first elected in May 2024 with 57.8% of the vote. Legal assistant for a leading firm representing municipal utility districts (MUDs) and water districts. Former public school educator with 15 years of combined experience in education and legal assistance.",
           "positions": [
             {
-              "topic": "Transparency & Engagement",
-              "statement": "Committed to improving government transparency and proactively delivering essential information to residents. Encourages resident involvement and collaborative engagement between residents and City Council."
+              "topic": "Public Safety",
+              "statement": "Will continue supporting JVPD, Fire Department, and EMS. Supports budgets that make emergency response teams efficient, preemptive, and valued. Will reinforce efforts to keep Jersey Village one of the safest communities in the county."
             },
             {
-              "topic": "Collaboration",
-              "statement": "Values hard work, engagement, and collaboration. Prioritizes working with existing council members and the mayor to serve the community."
+              "topic": "Infrastructure & Flooding",
+              "statement": "Supports street drainage repair projects, storm water drainage and flood mitigation to prevent future flooding. Willing to collaborate with neighboring municipalities. Supports improvements to streets, sidewalks, and underground infrastructure. Advocates for a preventative maintenance plan for the city's water and wastewater facilities."
+            },
+            {
+              "topic": "Economic Development",
+              "statement": "Plans to evaluate Jersey Village's current and future economic needs and work to empower citizen engagement for profitable and agreeable outcomes. Recognizes the city depends on fresh and innovative approaches to unlocking future potential for revenue and financial growth."
+            },
+            {
+              "topic": "Community Engagement & Transparency",
+              "statement": "Encourages resident involvement and collaborative engagement between residents and City Council. Will improve government transparency and proactively deliver essential information to residents."
             }
           ],
           "contact": {
@@ -98,21 +110,21 @@
           "name": "Brian McCauley",
           "photo": null,
           "incumbent": false,
-          "bio": "Jersey Village resident with mediation experience. Has been involved with the Jersey Village community, including participation related to the 2024 Charter Review Commission.",
+          "bio": "Jersey Village resident with mediation experience. Participated in the 2024 Jersey Village Charter Review Commission. Plans to use his mediation background to foster fair, inclusive discussions on the council.",
           "positions": [
             {
               "topic": "Pay-As-You-Go Fiscal Policy",
-              "statement": "Wants to phase in a Fort Worth-style Pay-As-You-Go (PayGo) model over 5-10 years for infrastructure and capital projects — paying with current revenues, reducing unnecessary debt, protecting reserves, and preventing future tax hikes. Goal is long-term fiscal health while maintaining Jersey Village's small-town charm and quality of life."
+              "statement": "Top priority. Wants to phase in a Fort Worth-style Pay-As-You-Go (PayGo) model over 5-10 years for infrastructure and capital projects — paying with current revenues, reducing unnecessary debt, protecting reserves, and preventing future tax hikes. Goal is long-term fiscal health while maintaining Jersey Village's small-town charm and quality of life."
             },
             {
               "topic": "Transparency & Accountability",
-              "statement": "Plans to build on Jersey Village's foundation of open meetings, posted council packets, and financial transparency. Will be readily accessible to residents, publicly share positions and reasoning on social media, and encourage open dialogue."
+              "statement": "Will build on Jersey Village's foundation of open meetings, posted council packets, and financial transparency. Plans to be readily accessible to residents, publicly share positions and reasoning on social media, and encourage open dialogue."
             }
           ],
           "contact": {
             "email": null,
             "website": null,
-            "facebook": null,
+            "facebook": "https://www.facebook.com/brianmccauleyforjerseyvillage",
             "twitter": null
           }
         },
@@ -121,11 +133,15 @@
           "name": "Steven Gill",
           "photo": null,
           "incumbent": false,
-          "bio": "Director of Sales for the United States at BioZone Scientific. Has years of experience working with city governments and global retail. Jersey Village resident since 2011.",
+          "bio": "Director of Sales for the United States at BioZone Scientific, a company specializing in air purification and UV photoplasma technology for hospitality, healthcare, entertainment, and transportation. Has years of experience working with city governments and global retail. Jersey Village resident since 2011.",
           "positions": [
             {
               "topic": "Economic Development",
               "statement": "Top priority is bringing new businesses to Jersey Village and supporting existing ones. Wants to help create an Economic Development Committee to assist the city. Notes that sales tax revenue from local businesses helps reduce property taxes."
+            },
+            {
+              "topic": "Fire Department & Services",
+              "statement": "Views fire department costs and ensuring adequate tax revenue to continue providing a high level of service as a major challenge facing the city."
             },
             {
               "topic": "Transparency",
