@@ -12,8 +12,8 @@ const client = new Anthropic();
 
 async function fetchSocialSummary(candidateName) {
   const response = await client.messages.create({
-    model: 'claude-sonnet-4-20250514',
-    max_tokens: 1024,
+    model: 'claude-haiku-4-5-20251001',
+    max_tokens: 512,
     tools: [{ type: 'web_search', name: 'web_search' }],
     messages: [{
       role: 'user',
