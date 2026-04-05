@@ -19,6 +19,7 @@
   const $candidateTabs = document.getElementById('candidate-tabs');
   const $detailTabs = document.getElementById('detail-tabs');
   const $detailPanel = document.getElementById('detail-panel');
+  const $candidateHeader = document.getElementById('candidate-header');
   const $raceView = document.getElementById('race-view');
   const $raceTitle = document.getElementById('race-title');
   const $raceDescription = document.getElementById('race-description');
@@ -183,8 +184,30 @@
       tab.setAttribute('aria-selected', tab.dataset.candidateId === candidateId ? 'true' : 'false');
     });
 
+    renderCandidateHeader();
     buildDetailTabs();
     renderDetailPanel();
+  }
+
+  function renderCandidateHeader() {
+    const result = getCandidate(activeCandidateId);
+    if (!result) return;
+    const { candidate, race } = result;
+
+    const badges = [];
+    if (candidate.incumbent) badges.push('Incumbent');
+    if (candidate.unopposed) badges.push('Unopposed');
+    const badgeHtml = badges.map(b =>
+      `<span class="candidate-badge">${esc(b)}</span>`
+    ).join(' ');
+
+    $candidateHeader.innerHTML = `
+      <span class="avatar avatar-lg">${esc(initials(candidate.name))}</span>
+      <div class="candidate-header-text">
+        <h2 class="candidate-name">${esc(candidate.name)} ${badgeHtml}</h2>
+        <p class="candidate-race-label">${esc(race.title)}</p>
+      </div>
+    `;
   }
 
   // --- Detail Tabs ---
@@ -232,38 +255,15 @@
     }
   }
 
-  function candidateHeaderHtml(candidate, race) {
-    const badges = [];
-    if (candidate.incumbent) badges.push('Incumbent');
-    if (candidate.unopposed) badges.push('Unopposed');
-    const badgeHtml = badges.map(b =>
-      `<span class="candidate-badge">${esc(b)}</span>`
-    ).join(' ');
-
-    return `
-      <div class="candidate-header">
-        <span class="avatar avatar-lg">${esc(initials(candidate.name))}</span>
-        <div class="candidate-header-text">
-          <h2 class="candidate-name">${esc(candidate.name)} ${badgeHtml}</h2>
-          <p class="candidate-race-label">${esc(race.title)}</p>
-        </div>
-      </div>
-    `;
-  }
-
   function renderBio(candidate, race) {
     $detailPanel.innerHTML = `
-      ${candidateHeaderHtml(candidate, race)}
       <p class="bio-text">${esc(candidate.bio)}</p>
     `;
   }
 
   function renderPositions(candidate, race) {
     if (!candidate.positions || candidate.positions.length === 0) {
-      $detailPanel.innerHTML = `
-        ${candidateHeaderHtml(candidate, race)}
-        <p class="no-contact">No position information available yet.</p>
-      `;
+      $detailPanel.innerHTML = '<p class="no-contact">No position information available yet.</p>';
       return;
     }
 
@@ -275,7 +275,6 @@
     `).join('');
 
     $detailPanel.innerHTML = `
-      ${candidateHeaderHtml(candidate, race)}
       <div class="positions-heading">Positions on Issues</div>
       ${items}
     `;
@@ -290,34 +289,20 @@
     if (c.facebook) links.push(`<li><strong>Facebook:</strong> <a href="${esc(c.facebook)}" target="_blank" rel="noopener">${esc(c.facebook)}</a></li>`);
     if (c.twitter) links.push(`<li><strong>X / Twitter:</strong> <a href="${esc(c.twitter)}" target="_blank" rel="noopener">${esc(c.twitter)}</a></li>`);
 
-    const body = links.length === 0
+    $detailPanel.innerHTML = links.length === 0
       ? '<p class="no-contact">No contact information available yet. Check back for updates.</p>'
       : `<ul class="contact-list">${links.join('')}</ul>`;
-
-    $detailPanel.innerHTML = `
-      ${candidateHeaderHtml(candidate, race)}
-      ${body}
-    `;
   }
 
   async function renderSocial(candidate) {
-    const result = getCandidate(candidate.id);
-    const race = result ? result.race : { title: '' };
-
-    $detailPanel.innerHTML = `
-      ${candidateHeaderHtml(candidate, race)}
-      <p class="loading">Loading social media activity...</p>
-    `;
+    $detailPanel.innerHTML = '<p class="loading">Loading social media activity...</p>';
 
     const data = await loadSocialData(candidate.id);
 
     if (activeCandidateId !== candidate.id || activeDetailTab !== 'Social Activity') return;
 
     if (!data || !data.summaries || data.summaries.length === 0) {
-      $detailPanel.innerHTML = `
-        ${candidateHeaderHtml(candidate, race)}
-        <p class="no-contact">No social media activity data available yet.</p>
-      `;
+      $detailPanel.innerHTML = '<p class="no-contact">No social media activity data available yet.</p>';
       return;
     }
 
@@ -340,10 +325,7 @@
     }).join('');
 
     $detailPanel.innerHTML = `
-      <div class="social-header">
-        ${candidateHeaderHtml(candidate, race)}
-        <span class="social-updated">${esc(updated)}</span>
-      </div>
+      <div class="social-meta"><span class="social-updated">${esc(updated)}</span></div>
       <div class="social-entries">${entries}</div>
     `;
   }
