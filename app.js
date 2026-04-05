@@ -20,11 +20,32 @@
   const $detailTabs = document.getElementById('detail-tabs');
   const $detailPanel = document.getElementById('detail-panel');
   const $raceView = document.getElementById('race-view');
+  const $raceTitle = document.getElementById('race-title');
+  const $raceDescription = document.getElementById('race-description');
   const $propositionView = document.getElementById('proposition-view');
   const $propositionContent = document.getElementById('proposition-content');
   const $electionInfoView = document.getElementById('election-info-view');
   const $electionInfoContent = document.getElementById('election-info-content');
   const $footerDisclaimer = document.getElementById('footer-disclaimer');
+
+  // --- Helpers ---
+
+  function esc(str) {
+    if (!str) return '';
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return '';
+    const d = new Date(dateStr + 'T00:00:00');
+    return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+  }
+
+  function initials(name) {
+    return name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+  }
 
   // --- Data Loading ---
 
@@ -64,7 +85,7 @@
     }
 
     const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
-    $countdown.textContent = `${days} day${days !== 1 ? 's' : ''} until Election Day — May 2, 2026`;
+    $countdown.textContent = `${days} day${days !== 1 ? 's' : ''} until Election Day \u2014 May 2, 2026`;
   }
 
   // --- Race Navigation ---
@@ -107,12 +128,10 @@
   function selectRace(raceId) {
     activeRaceId = raceId;
 
-    // Update race tab states
     $raceTabs.querySelectorAll('.race-tab').forEach(tab => {
       tab.setAttribute('aria-selected', tab.dataset.raceId === raceId ? 'true' : 'false');
     });
 
-    // Show correct view
     $raceView.classList.toggle('hidden', raceId === 'proposition-a' || raceId === 'election-info');
     $propositionView.classList.toggle('hidden', raceId !== 'proposition-a');
     $electionInfoView.classList.toggle('hidden', raceId !== 'election-info');
@@ -124,6 +143,8 @@
     } else {
       const race = candidatesData.races.find(r => r.id === raceId);
       if (race) {
+        $raceTitle.textContent = race.title;
+        $raceDescription.textContent = race.description || '';
         buildCandidateTabs(race);
         selectCandidate(race.candidates[0].id);
       }
@@ -142,12 +163,13 @@
       btn.dataset.candidateId = candidate.id;
       btn.setAttribute('aria-selected', 'false');
 
-      let label = candidate.name;
+      const avatarEl = `<span class="avatar">${esc(initials(candidate.name))}</span>`;
+      let labelContent = `<span>${esc(candidate.name)}</span>`;
       if (candidate.unopposed) {
-        label += '<span class="unopposed-badge">(Unopposed)</span>';
+        labelContent = `<span>${esc(candidate.name)}</span><span class="unopposed-badge">Unopposed</span>`;
       }
-      btn.innerHTML = label;
 
+      btn.innerHTML = `${avatarEl}<span class="tab-label">${labelContent}</span>`;
       btn.addEventListener('click', () => selectCandidate(candidate.id));
       $candidateTabs.appendChild(btn);
     });
@@ -200,43 +222,48 @@
   function renderDetailPanel() {
     const result = getCandidate(activeCandidateId);
     if (!result) return;
-
     const { candidate, race } = result;
 
     switch (activeDetailTab) {
-      case 'Bio':
-        renderBio(candidate, race);
-        break;
-      case 'Positions':
-        renderPositions(candidate);
-        break;
-      case 'Contact':
-        renderContact(candidate);
-        break;
-      case 'Social Activity':
-        renderSocial(candidate);
-        break;
+      case 'Bio': renderBio(candidate, race); break;
+      case 'Positions': renderPositions(candidate, race); break;
+      case 'Contact': renderContact(candidate, race); break;
+      case 'Social Activity': renderSocial(candidate); break;
     }
   }
 
-  function renderBio(candidate, race) {
+  function candidateHeaderHtml(candidate, race) {
     const badges = [];
     if (candidate.incumbent) badges.push('Incumbent');
     if (candidate.unopposed) badges.push('Unopposed');
-    const badgeHtml = badges.length
-      ? ` <span class="candidate-badge">${esc(badges.join(' · '))}</span>`
-      : '';
+    const badgeHtml = badges.map(b =>
+      `<span class="candidate-badge">${esc(b)}</span>`
+    ).join(' ');
 
+    return `
+      <div class="candidate-header">
+        <span class="avatar avatar-lg">${esc(initials(candidate.name))}</span>
+        <div class="candidate-header-text">
+          <h2 class="candidate-name">${esc(candidate.name)} ${badgeHtml}</h2>
+          <p class="candidate-race-label">${esc(race.title)}</p>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderBio(candidate, race) {
     $detailPanel.innerHTML = `
-      <h2 class="candidate-name">${esc(candidate.name)}${badgeHtml}</h2>
-      <p class="candidate-race-label">${esc(race.title)}${race.description ? ' — ' + esc(race.description) : ''}</p>
+      ${candidateHeaderHtml(candidate, race)}
       <p class="bio-text">${esc(candidate.bio)}</p>
     `;
   }
 
-  function renderPositions(candidate) {
+  function renderPositions(candidate, race) {
     if (!candidate.positions || candidate.positions.length === 0) {
-      $detailPanel.innerHTML = '<p class="no-contact">No position information available yet.</p>';
+      $detailPanel.innerHTML = `
+        ${candidateHeaderHtml(candidate, race)}
+        <p class="no-contact">No position information available yet.</p>
+      `;
       return;
     }
 
@@ -248,13 +275,13 @@
     `).join('');
 
     $detailPanel.innerHTML = `
-      <h2 class="candidate-name">${esc(candidate.name)}</h2>
-      <h3 style="margin-bottom:16px;color:var(--color-primary)">Positions on Issues</h3>
+      ${candidateHeaderHtml(candidate, race)}
+      <div class="positions-heading">Positions on Issues</div>
       ${items}
     `;
   }
 
-  function renderContact(candidate) {
+  function renderContact(candidate, race) {
     const c = candidate.contact || {};
     const links = [];
 
@@ -263,34 +290,32 @@
     if (c.facebook) links.push(`<li><strong>Facebook:</strong> <a href="${esc(c.facebook)}" target="_blank" rel="noopener">${esc(c.facebook)}</a></li>`);
     if (c.twitter) links.push(`<li><strong>X / Twitter:</strong> <a href="${esc(c.twitter)}" target="_blank" rel="noopener">${esc(c.twitter)}</a></li>`);
 
-    if (links.length === 0) {
-      $detailPanel.innerHTML = `
-        <h2 class="candidate-name">${esc(candidate.name)}</h2>
-        <p class="no-contact">No contact information available yet. Check back for updates.</p>
-      `;
-      return;
-    }
+    const body = links.length === 0
+      ? '<p class="no-contact">No contact information available yet. Check back for updates.</p>'
+      : `<ul class="contact-list">${links.join('')}</ul>`;
 
     $detailPanel.innerHTML = `
-      <h2 class="candidate-name">${esc(candidate.name)}</h2>
-      <ul class="contact-list">${links.join('')}</ul>
+      ${candidateHeaderHtml(candidate, race)}
+      ${body}
     `;
   }
 
   async function renderSocial(candidate) {
+    const result = getCandidate(candidate.id);
+    const race = result ? result.race : { title: '' };
+
     $detailPanel.innerHTML = `
-      <h2 class="candidate-name">${esc(candidate.name)}</h2>
+      ${candidateHeaderHtml(candidate, race)}
       <p class="loading">Loading social media activity...</p>
     `;
 
     const data = await loadSocialData(candidate.id);
 
-    // Guard: user may have navigated away
     if (activeCandidateId !== candidate.id || activeDetailTab !== 'Social Activity') return;
 
     if (!data || !data.summaries || data.summaries.length === 0) {
       $detailPanel.innerHTML = `
-        <h2 class="candidate-name">${esc(candidate.name)}</h2>
+        ${candidateHeaderHtml(candidate, race)}
         <p class="no-contact">No social media activity data available yet.</p>
       `;
       return;
@@ -303,7 +328,7 @@
     const entries = data.summaries.map(s => {
       const sources = (s.sources || []).map(src =>
         `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(src.platform || 'Link')}</a>`
-      ).join(' &middot; ');
+      ).join(' \u00b7 ');
 
       return `
         <div class="social-entry">
@@ -316,10 +341,10 @@
 
     $detailPanel.innerHTML = `
       <div class="social-header">
-        <h2 class="candidate-name">${esc(candidate.name)}</h2>
+        ${candidateHeaderHtml(candidate, race)}
         <span class="social-updated">${esc(updated)}</span>
       </div>
-      ${entries}
+      <div class="social-entries">${entries}</div>
     `;
   }
 
@@ -388,7 +413,7 @@
 
         <div class="info-section">
           <h3>Early Voting</h3>
-          <p>${formatDate(e.earlyVoting?.start)} &ndash; ${formatDate(e.earlyVoting?.end)}</p>
+          <p>${formatDate(e.earlyVoting?.start)} \u2013 ${formatDate(e.earlyVoting?.end)}</p>
           ${earlyLocations}
         </div>
 
@@ -407,21 +432,6 @@
     `;
   }
 
-  // --- Helpers ---
-
-  function esc(str) {
-    if (!str) return '';
-    const div = document.createElement('div');
-    div.textContent = str;
-    return div.innerHTML;
-  }
-
-  function formatDate(dateStr) {
-    if (!dateStr) return '';
-    const d = new Date(dateStr + 'T00:00:00');
-    return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-  }
-
   // --- Init ---
 
   async function init() {
@@ -433,18 +443,13 @@
       return;
     }
 
-    // Disclaimer
     $disclaimerBanner.textContent = electionData.disclaimer;
     $footerDisclaimer.textContent = electionData.disclaimer;
 
-    // Countdown
     updateCountdown();
     setInterval(updateCountdown, 60000);
 
-    // Build navigation
     buildRaceTabs();
-
-    // Default to first race
     selectRace(candidatesData.races[0].id);
   }
 
