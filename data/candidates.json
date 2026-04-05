@@ -3,24 +3,26 @@
     {
       "id": "place-1",
       "title": "City Council Place 1",
+      "description": "Open seat — incumbent Drew Wasson did not seek re-election.",
       "candidates": [
         {
           "id": "michael-brittain",
           "name": "Michael Brittain",
           "photo": null,
-          "bio": "Placeholder biography for Michael Brittain. Information will be updated as it becomes available.",
+          "incumbent": false,
+          "bio": "Managing Partner at Selrico Communications LLC, a fiber optic and structured cabling company serving government entities including Harris County and the City of Houston. Co-founded the predecessor company in 2003. Former firefighter and EMT-B at the Jersey Village Fire Department. Has over 20 years of experience in construction and land development.",
           "positions": [
             {
-              "topic": "Public Safety",
-              "statement": "Position on public safety to be updated."
+              "topic": "Public Safety & Emergency Services",
+              "statement": "Believes strong economic development is required to ensure Police, Fire, and EMS are properly funded through local business sales tax revenue. Draws on his background as a former Jersey Village firefighter and EMT."
             },
             {
-              "topic": "Infrastructure",
-              "statement": "Position on infrastructure to be updated."
+              "topic": "Fiscal Responsibility",
+              "statement": "Plans to use his construction and land development experience to oversee the new City Hall remodel and building a city pool. Has raised concerns about city spending on capital projects, including the City Hall remodel and the golf clubhouse/convention center project."
             },
             {
-              "topic": "Budget & Taxes",
-              "statement": "Position on budget and taxes to be updated."
+              "topic": "Transparency & Communication",
+              "statement": "Supports maintaining a dedicated communications director, open communications with residents, public participation in meetings, and clear communication of decisions and financial information across multiple platforms."
             }
           ],
           "contact": {
@@ -34,19 +36,16 @@
           "id": "curt-beasley",
           "name": "Curt Beasley",
           "photo": null,
-          "bio": "Placeholder biography for Curt Beasley. Information will be updated as it becomes available.",
+          "incumbent": false,
+          "bio": "Construction Area Manager at D.R. Horton, one of the nation's largest homebuilders, based in Houston. Has over 20 years of experience in construction and land development. Resident of Jersey Village.",
           "positions": [
             {
-              "topic": "Public Safety",
-              "statement": "Position on public safety to be updated."
+              "topic": "Financial Reserves & Maintenance",
+              "statement": "Will work with City Council to maintain strong financial reserves while prioritizing preventive maintenance and infrastructure projects before issues arise."
             },
             {
-              "topic": "Infrastructure",
-              "statement": "Position on infrastructure to be updated."
-            },
-            {
-              "topic": "Budget & Taxes",
-              "statement": "Position on budget and taxes to be updated."
+              "topic": "Decision-Making Approach",
+              "statement": "Will listen to residents, fellow council members, and the City Manager while focusing on costs, return on investment, and long-term data. Aims for practical, collaborative solutions that serve the best interests of Jersey Village."
             }
           ],
           "contact": {
@@ -61,31 +60,29 @@
     {
       "id": "place-4",
       "title": "City Council Place 4",
+      "description": "Incumbent Connie Rossi running unopposed for re-election.",
       "candidates": [
         {
           "id": "connie-rossi",
           "name": "Connie Rossi",
           "photo": null,
+          "incumbent": true,
           "unopposed": true,
-          "bio": "Placeholder biography for Connie Rossi. Information will be updated as it becomes available.",
+          "bio": "Current City Council Member for Place 4, first elected in May 2024 with 57.8% of the vote. Legal assistant for a leading firm representing municipal utility districts (MUDs) and water districts. Former public school educator with 15 years of experience in education and legal assistance.",
           "positions": [
             {
-              "topic": "Public Safety",
-              "statement": "Position on public safety to be updated."
+              "topic": "Transparency & Engagement",
+              "statement": "Committed to improving government transparency and proactively delivering essential information to residents. Encourages resident involvement and collaborative engagement between residents and City Council."
             },
             {
-              "topic": "Infrastructure",
-              "statement": "Position on infrastructure to be updated."
-            },
-            {
-              "topic": "Budget & Taxes",
-              "statement": "Position on budget and taxes to be updated."
+              "topic": "Collaboration",
+              "statement": "Values hard work, engagement, and collaboration. Prioritizes working with existing council members and the mayor to serve the community."
             }
           ],
           "contact": {
             "email": null,
-            "website": null,
-            "facebook": null,
+            "website": "https://connieforjv.org/",
+            "facebook": "https://www.facebook.com/connierossiforjv/",
             "twitter": null
           }
         }
@@ -94,24 +91,22 @@
     {
       "id": "place-5",
       "title": "City Council Place 5",
+      "description": "Open seat — incumbent Jennifer McCrea did not seek re-election.",
       "candidates": [
         {
           "id": "brian-mccauley",
           "name": "Brian McCauley",
           "photo": null,
-          "bio": "Placeholder biography for Brian McCauley. Information will be updated as it becomes available.",
+          "incumbent": false,
+          "bio": "Jersey Village resident with mediation experience. Has been involved with the Jersey Village community, including participation related to the 2024 Charter Review Commission.",
           "positions": [
             {
-              "topic": "Public Safety",
-              "statement": "Position on public safety to be updated."
+              "topic": "Pay-As-You-Go Fiscal Policy",
+              "statement": "Wants to phase in a Fort Worth-style Pay-As-You-Go (PayGo) model over 5-10 years for infrastructure and capital projects — paying with current revenues, reducing unnecessary debt, protecting reserves, and preventing future tax hikes. Goal is long-term fiscal health while maintaining Jersey Village's small-town charm and quality of life."
             },
             {
-              "topic": "Infrastructure",
-              "statement": "Position on infrastructure to be updated."
-            },
-            {
-              "topic": "Budget & Taxes",
-              "statement": "Position on budget and taxes to be updated."
+              "topic": "Transparency & Accountability",
+              "statement": "Plans to build on Jersey Village's foundation of open meetings, posted council packets, and financial transparency. Will be readily accessible to residents, publicly share positions and reasoning on social media, and encourage open dialogue."
             }
           ],
           "contact": {
@@ -125,19 +120,16 @@
           "id": "steven-gill",
           "name": "Steven Gill",
           "photo": null,
-          "bio": "Placeholder biography for Steven Gill. Information will be updated as it becomes available.",
+          "incumbent": false,
+          "bio": "Director of Sales for the United States at BioZone Scientific. Has years of experience working with city governments and global retail. Jersey Village resident since 2011.",
           "positions": [
             {
-              "topic": "Public Safety",
-              "statement": "Position on public safety to be updated."
+              "topic": "Economic Development",
+              "statement": "Top priority is bringing new businesses to Jersey Village and supporting existing ones. Wants to help create an Economic Development Committee to assist the city. Notes that sales tax revenue from local businesses helps reduce property taxes."
             },
             {
-              "topic": "Infrastructure",
-              "statement": "Position on infrastructure to be updated."
-            },
-            {
-              "topic": "Budget & Taxes",
-              "statement": "Position on budget and taxes to be updated."
+              "topic": "Transparency",
+              "statement": "Notes that Jersey Village has obtained five of the six Texas Comptroller transparency stars. Believes the city can improve on social media outreach and resident engagement to earn the sixth."
             }
           ],
           "contact": {

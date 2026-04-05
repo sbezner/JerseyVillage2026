@@ -191,6 +191,18 @@ body {
   margin-bottom: 4px;
 }
 
+.candidate-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--color-primary-bg);
+  color: var(--color-primary);
+  padding: 2px 10px;
+  border-radius: 12px;
+  vertical-align: middle;
+  margin-left: 8px;
+}
+
 .candidate-race-label {
   font-size: 0.85rem;
   color: var(--color-text-light);

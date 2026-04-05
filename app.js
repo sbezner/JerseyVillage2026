@@ -220,9 +220,16 @@
   }
 
   function renderBio(candidate, race) {
+    const badges = [];
+    if (candidate.incumbent) badges.push('Incumbent');
+    if (candidate.unopposed) badges.push('Unopposed');
+    const badgeHtml = badges.length
+      ? ` <span class="candidate-badge">${esc(badges.join(' · '))}</span>`
+      : '';
+
     $detailPanel.innerHTML = `
-      <h2 class="candidate-name">${esc(candidate.name)}</h2>
-      <p class="candidate-race-label">${esc(race.title)}${candidate.unopposed ? ' — Unopposed' : ''}</p>
+      <h2 class="candidate-name">${esc(candidate.name)}${badgeHtml}</h2>
+      <p class="candidate-race-label">${esc(race.title)}${race.description ? ' — ' + esc(race.description) : ''}</p>
       <p class="bio-text">${esc(candidate.bio)}</p>
     `;
   }
