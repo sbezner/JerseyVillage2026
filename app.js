@@ -298,16 +298,16 @@
     }
   }
 
-  function splitBioIntoParagraphs(bio, sentencesPerParagraph = 2) {
+  function bioToParagraphs(bio) {
+    // Honor any explicit paragraph breaks the bio source provides.
+    // Avoid auto-splitting on sentence boundaries — abbreviations
+    // like "D.R.", "U.S.", "Mrs." make naive sentence detection
+    // unreliable and can drop content.
     if (!bio) return [];
-    // Split on sentence boundaries while keeping the punctuation intact.
-    const sentences = bio.match(/[^.!?]+[.!?]+(?:\s|$)/g) || [bio];
-    const trimmed = sentences.map(s => s.trim()).filter(Boolean);
-    const paragraphs = [];
-    for (let i = 0; i < trimmed.length; i += sentencesPerParagraph) {
-      paragraphs.push(trimmed.slice(i, i + sentencesPerParagraph).join(' '));
-    }
-    return paragraphs;
+    return bio
+      .split(/\n\s*\n/)
+      .map(p => p.trim())
+      .filter(Boolean);
   }
 
   function buildBioFacts(candidate, race) {
@@ -325,7 +325,7 @@
   }
 
   function renderBio(candidate, race) {
-    const paragraphs = splitBioIntoParagraphs(candidate.bio, 2);
+    const paragraphs = bioToParagraphs(candidate.bio);
     const paragraphHtml = paragraphs.length > 0
       ? paragraphs.map(p => `<p class="bio-paragraph">${esc(p)}</p>`).join('')
       : '<p class="bio-paragraph no-contact">No biographical information available yet.</p>';
