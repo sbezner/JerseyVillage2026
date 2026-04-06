@@ -1,9 +1,11 @@
 name: Update Social Summaries
 
 on:
-  schedule:
-    - cron: '0 12 * * *'  # Noon UTC (7 AM CDT) daily
-  workflow_dispatch:        # Manual trigger for testing
+  # Daily cron disabled while iterating manually.
+  # Re-enable by uncommenting the schedule block below.
+  # schedule:
+  #   - cron: '0 12 * * *'  # Noon UTC (7 AM CDT) daily
+  workflow_dispatch:        # Manual trigger only
 
 permissions:
   contents: write
