@@ -1,51 +1,26 @@
 {
   "candidateId": "michael-brittain",
-  "lastUpdated": "2026-04-06T18:46:28.223Z",
-  "lastChecked": "2026-04-06T18:46:28.223Z",
+  "lastUpdated": "2026-04-06T19:00:00.000Z",
+  "lastChecked": "2026-04-06T19:00:00.000Z",
   "summaries": [
     {
       "date": "2026-04-06",
-      "summary": ".",
+      "summary": "In a March 25, 2026 Community Impact Q&A, Brittain identified emergency services funding through economic development as his top priority, stating that strong local business sales tax revenue is essential to properly fund Police, Fire, and EMS. He described the city's biggest challenge as balancing economic growth with infrastructure needs, advocating for proactive planning and competitive bidding to address utilities, roads, and walkways before costs escalate. Brittain also expressed support for maintaining strong financial reserves and working within the city's existing roadmap for economic development, future land use, and a new municipal and community center.",
       "sources": [
         {
           "platform": "web",
-          "url": "https://www.jerseyvillage.gov/m/newsflash/home/detail/70",
-          "snippet": "General and Special Election - May 2nd, 2026 • Jersey Village, TX"
-        },
-        {
-          "platform": "web",
           "url": "https://communityimpact.com/houston/cy-fair-jersey-village/election/2026/03/25/qa-meet-the-candidates-running-for-jersey-village-city-council-place-1/",
-          "snippet": "Q&A: Meet the candidates running for Jersey Village City Council Place 1 | Community Impact"
+          "snippet": "Q&A: Meet the candidates running for Jersey Village City Council Place 1 — Community Impact, March 25, 2026"
+        },
+        {
+          "platform": "facebook",
+          "url": "https://www.facebook.com/profile.php?id=61588297770229",
+          "snippet": "Michael Brittain campaign Facebook page"
         },
         {
           "platform": "web",
-          "url": "https://jerseyvillage.gov/DocumentCenter/View/1914/2026-Candidate-Packet-Short?bidId=",
-          "snippet": "CITY OF JERSEY VILLAGE, TEXAS"
-        },
-        {
-          "platform": "web",
-          "url": "https://www.jerseyvillage.gov/AgendaCenter/ViewFile/Agenda/_02092026-372",
-          "snippet": "CITY OF JERSEY VILLAGE, TEXAS"
-        },
-        {
-          "platform": "web",
-          "url": "https://communityimpact.com/houston/cy-fair-jersey-village/government/2026/01/08/preview-jersey-village-city-council-to-talk-traffic-congestion-may-election/",
-          "snippet": "PREVIEW: Jersey Village City Council to talk traffic congestion, May election | Community Impact"
-        },
-        {
-          "platform": "web",
-          "url": "https://ballotpedia.org/Texas_elections,_2026",
-          "snippet": "Texas elections, 2026 - Ballotpedia"
-        },
-        {
-          "platform": "web",
-          "url": "https://txroundtable.com/elections/",
-          "snippet": "Elections – Candidates on the Ballot | Texas Business Roundtable"
-        },
-        {
-          "platform": "web",
-          "url": "https://communityimpact.com/houston/cy-fair/election/2025/02/18/5-candidates-file-for-open-jersey-village-city-council-positions/",
-          "snippet": "5 candidates file for open Jersey Village City Council positions | Community Impact"
+          "url": "https://www.jerseyvillage.gov/m/newsflash/home/detail/70",
+          "snippet": "General and Special Election – May 2, 2026 — City of Jersey Village official site"
         }
       ]
     }
