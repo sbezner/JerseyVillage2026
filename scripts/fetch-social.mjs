@@ -45,7 +45,7 @@ async function fetchActivitySummary(candidate, raceTitle) {
       `"No recent public activity was found for ${candidate.name}."`,
     tools: [
       { type: 'web_search_20250305', name: 'web_search' },
-      { type: 'web_fetch_20260309', name: 'web_fetch' }
+      { type: 'web_fetch_20260309', name: 'web_fetch', allowed_callers: ['direct'] }
     ],
     messages: [{
       role: 'user',
