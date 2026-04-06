@@ -23,19 +23,18 @@ python3 -m http.server 8000
 
 Edit `data/candidates.json` with candidate bios, positions, and contact info. The front end reads this file at page load.
 
-## Recent Activity (manual refresh workflow)
+## Reusable Claude.ai Prompts
 
-The "Recent Activity" tab on each candidate page is refreshed manually using a
-reusable Claude.ai prompt. This produces higher quality, more cited summaries
-than the original automated API approach and costs $0 per refresh.
+Two named prompts live in `prompts/` for refreshing site content via Claude.ai (free, high quality, editorially controlled):
 
-**See [`prompts/recent-activity-request.md`](prompts/recent-activity-request.md)** for the full prompt and usage instructions.
+- **[`prompts/recent-activity-request.md`](prompts/recent-activity-request.md)** — refresh the Recent Activity tab for all 5 candidates in one shot. Use weekly or after notable events.
+- **[`prompts/bio-update-request.md`](prompts/bio-update-request.md)** — strengthen the Bio tab for all 5 candidates in one shot. Use occasionally when new biographical info surfaces.
 
-Quick workflow:
-1. Open `prompts/recent-activity-request.md` and copy the prompt
+Both follow the same workflow:
+1. Open the prompt file and copy the prompt
 2. Paste it into https://claude.ai (web search enabled)
 3. Wait ~2 minutes for the combined JSON response
-4. Hand the JSON back to Claude Code (or manually edit `data/social/*.json`)
+4. Hand the JSON back to Claude Code (or manually edit the relevant data file)
 5. Commit and push — GitHub Pages auto-deploys
 
 ## Automated Social Summaries (currently manual-only)
