@@ -76,6 +76,19 @@
     return map[platform] || 'Web';
   }
 
+  function isNoActivitySummary(text) {
+    if (!text) return true;
+    const t = text.toLowerCase();
+    return t.startsWith('no recent social media activity')
+      || t.startsWith('no social media activity')
+      || (t.includes('unable to find') && t.includes('social media'))
+      || (t.includes('no recent') && t.includes('social media'))
+      || t.startsWith("i'll search")
+      || t.startsWith('i will search')
+      || t.startsWith('let me search')
+      || t.startsWith('based on my search');
+  }
+
   // --- Data Loading ---
 
   async function loadData() {
@@ -329,16 +342,31 @@
 
     if (activeCandidateId !== candidate.id || activeDetailTab !== 'Social Activity') return;
 
-    if (!data || !data.summaries || data.summaries.length === 0) {
-      $detailPanel.innerHTML = '<p class="no-contact">No social media activity data available yet.</p>';
+    // Determine "last checked" timestamp — prefer lastChecked, fall back to lastUpdated
+    const lastCheckedIso = (data && (data.lastChecked || data.lastUpdated)) || null;
+    const lastCheckedLabel = lastCheckedIso
+      ? new Date(lastCheckedIso).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+      : null;
+
+    const statusLine = lastCheckedLabel
+      ? `<div class="social-status-line"><span class="social-status-dot"></span>Last checked: <strong>${esc(lastCheckedLabel)}</strong> · Updates daily</div>`
+      : `<div class="social-status-line">Social media monitoring begins soon</div>`;
+
+    // Filter out "no activity" entries and any narrated garbage
+    const activeEntries = (data?.summaries || []).filter(s => !isNoActivitySummary(s.summary));
+
+    if (activeEntries.length === 0) {
+      $detailPanel.innerHTML = `
+        ${statusLine}
+        <div class="social-empty-state">
+          <p>No recent social media activity detected for <strong>${esc(candidate.name)}</strong>.</p>
+          <p class="social-empty-sub">This page checks Facebook and X/Twitter daily and will highlight new activity here as it appears.</p>
+        </div>
+      `;
       return;
     }
 
-    const updated = data.lastUpdated
-      ? `Last updated: ${new Date(data.lastUpdated).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`
-      : '';
-
-    const entries = data.summaries.map(s => {
+    const entries = activeEntries.map(s => {
       const sources = (s.sources || []).map(src => {
         const label = sourceLabel(src);
         const platform = platformLabel(src.platform);
@@ -369,7 +397,7 @@
     }).join('');
 
     $detailPanel.innerHTML = `
-      <div class="social-meta"><span class="social-updated">${esc(updated)}</span></div>
+      ${statusLine}
       <div class="social-entries">${entries}</div>
     `;
   }

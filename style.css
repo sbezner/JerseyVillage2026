@@ -468,6 +468,52 @@ body {
 }
 
 /* ========== Social Summaries ========== */
+.social-status-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  background: var(--color-bg);
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+}
+
+.social-status-line strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.social-status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-green);
+  box-shadow: 0 0 0 3px rgba(42, 138, 74, 0.2);
+  flex-shrink: 0;
+}
+
+.social-empty-state {
+  padding: 24px 4px;
+  color: var(--color-text-light);
+}
+
+.social-empty-state p {
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+}
+
+.social-empty-state .social-empty-sub {
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+
+.social-empty-state strong {
+  color: var(--color-text);
+}
+
 .social-meta {
   margin-bottom: 16px;
 }

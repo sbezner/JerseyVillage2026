@@ -58,9 +58,18 @@ async function fetchSocialSummary(candidateName) {
   return {
     date: new Date().toISOString().split('T')[0],
     platforms: ['facebook', 'x'],
-    summary: summaryText || 'No social media activity found for this candidate today.',
+    summary: summaryText || `No recent social media activity was found for ${candidateName}.`,
     sources: sources.slice(0, 5)
   };
+}
+
+function isNoActivity(text) {
+  if (!text) return true;
+  const t = text.toLowerCase();
+  return t.startsWith('no recent social media activity')
+    || t.startsWith('no social media activity')
+    || (t.includes('unable to find') && t.includes('social media'))
+    || (t.includes('no recent') && t.includes('social media'));
 }
 
 async function main() {
@@ -70,6 +79,8 @@ async function main() {
   const { races } = JSON.parse(candidatesRaw);
   const candidates = races.flatMap(r => r.candidates);
 
+  const nowIso = new Date().toISOString();
+
   for (const candidate of candidates) {
     const filePath = join(SOCIAL_DIR, `${candidate.id}.json`);
 
@@ -77,18 +88,33 @@ async function main() {
     try {
       existing = JSON.parse(await readFile(filePath, 'utf-8'));
     } catch {
-      existing = { candidateId: candidate.id, lastUpdated: null, summaries: [] };
+      existing = { candidateId: candidate.id, lastUpdated: null, lastChecked: null, summaries: [] };
     }
+
+    // Ensure new schema fields exist
+    if (!('lastChecked' in existing)) existing.lastChecked = existing.lastUpdated;
+    if (!Array.isArray(existing.summaries)) existing.summaries = [];
 
     console.log(`Fetching social summary for ${candidate.name}...`);
     const newSummary = await fetchSocialSummary(candidate.name);
 
-    existing.summaries.unshift(newSummary);
-    existing.summaries = existing.summaries.slice(0, MAX_HISTORY);
-    existing.lastUpdated = new Date().toISOString();
+    const mostRecent = existing.summaries[0];
+    const newIsNoActivity = isNoActivity(newSummary.summary);
+    const lastWasNoActivity = mostRecent && isNoActivity(mostRecent.summary);
+
+    // Dedup: if both new and most recent are "no activity", just bump lastChecked
+    if (newIsNoActivity && lastWasNoActivity) {
+      existing.lastChecked = nowIso;
+      console.log(`  No new activity for ${candidate.name} — bumping lastChecked only`);
+    } else {
+      existing.summaries.unshift(newSummary);
+      existing.summaries = existing.summaries.slice(0, MAX_HISTORY);
+      existing.lastUpdated = nowIso;
+      existing.lastChecked = nowIso;
+      console.log(`  Updated ${candidate.name} with new summary`);
+    }
 
     await writeFile(filePath, JSON.stringify(existing, null, 2) + '\n');
-    console.log(`Updated: ${candidate.name}`);
 
     // Pause between candidates to respect rate limits
     await new Promise(resolve => setTimeout(resolve, 2000));
