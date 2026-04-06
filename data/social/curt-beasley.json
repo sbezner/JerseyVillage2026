@@ -1,10 +1,48 @@
 {
   "candidateId": "curt-beasley",
-  "lastUpdated": null,
+  "lastUpdated": "2026-04-06T15:30:25.419Z",
   "summaries": [
     {
+      "date": "2026-04-06",
+      "platforms": [
+        "facebook",
+        "x"
+      ],
+      "summary": "I'll search for recent social media activity by Curt Beasley related to the Jersey Village, Texas city council election.\nLet me search more specifically for Curt Beasley's social media activity and campaign posts.\nLet me try a more specific search for recent campaign activity and posts by Curt Beasley.\nBased on my search results, I was unable to find any recent social media posts or public activity by Curt Beasley on Facebook or X/Twitter related to his candidacy for Jersey Village City Council Place 1 in the May 2, 2026 election.\n\n\nCurt Beasley is confirmed to be running against Michael Brittain for Council Member Place 1\n in the May 2, 2026 Jersey Village election. While I found references to a Facebook profile for Curt Beasley, I was unable to access specific recent posts or campaign content from either Facebook or Twitter/X platforms.\n\nThe search results confirm his candidacy status and that \nhe is competing for a soon-to-be vacant Place 1 seat, replacing Drew Wasson who did not file for reelection\n, but no recent social media campaign posts, policy positions, or public statements were found in the available search results.\n\nNo specific URLs to recent social media posts by Curt Beasley were found in the search results.",
+      "sources": [
+        {
+          "platform": "web",
+          "url": "https://www.jerseyvillage.gov/m/newsflash/home/detail/70",
+          "snippet": "General and Special Election - May 2nd, 2026 • Jersey Village, TX"
+        },
+        {
+          "platform": "web",
+          "url": "https://communityimpact.com/houston/cy-fair-jersey-village/election/2026/03/25/qa-meet-the-candidates-running-for-jersey-village-city-council-place-1/",
+          "snippet": "Q&A: Meet the candidates running for Jersey Village City Council Place 1 | Community Impact"
+        },
+        {
+          "platform": "web",
+          "url": "https://govexperts.com/all-new-texas-2026-primary-and-general-election-candidates/",
+          "snippet": "Texas 2026 Elections: Who’s On the Ballot | GovExperts"
+        },
+        {
+          "platform": "web",
+          "url": "https://communityimpact.com/houston/cy-fair-jersey-village/election/2026/03/25/qa-meet-the-candidates-running-for-jersey-village-city-council-place-5/",
+          "snippet": "Q&A: Meet the candidates running for Jersey Village City Council Place 5 | Community Impact"
+        },
+        {
+          "platform": "web",
+          "url": "https://www.fox26houston.com/news/houston-city-council-election-april-4-2026",
+          "snippet": "Houston City Council District C election: Polling locations, candidates | FOX 26 Houston"
+        }
+      ]
+    },
+    {
       "date": "2026-04-05",
-      "platforms": ["facebook", "x"],
+      "platforms": [
+        "facebook",
+        "x"
+      ],
       "summary": "Social media monitoring begins soon. Check back for daily updates on candidate activity.",
       "sources": []
     }
