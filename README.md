@@ -25,12 +25,13 @@ Edit `data/candidates.json` with candidate bios, positions, and contact info. Th
 
 ## Reusable Claude.ai Prompts
 
-Two named prompts live in `prompts/` for refreshing site content via Claude.ai (free, high quality, editorially controlled):
+Three named prompts live in `prompts/` for refreshing site content via Claude.ai (free, high quality, editorially controlled):
 
 - **[`prompts/recent-activity-request.md`](prompts/recent-activity-request.md)** — refresh the Recent Activity tab for all 5 candidates in one shot. Use weekly or after notable events.
 - **[`prompts/bio-update-request.md`](prompts/bio-update-request.md)** — strengthen the Bio tab for all 5 candidates in one shot. Use occasionally when new biographical info surfaces.
+- **[`prompts/contact-update-request.md`](prompts/contact-update-request.md)** — refresh the Contact tab (email, website, facebook, twitter) for all 5 candidates. Use when a candidate adds a new public channel.
 
-Both follow the same workflow:
+All three follow the same workflow:
 1. Open the prompt file and copy the prompt
 2. Paste it into https://claude.ai (web search enabled)
 3. Wait ~2 minutes for the combined JSON response
