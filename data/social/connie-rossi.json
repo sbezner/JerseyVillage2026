@@ -1,6 +1,42 @@
 {
   "candidateId": "connie-rossi",
-  "lastUpdated": null,
-  "lastChecked": null,
-  "summaries": []
+  "lastUpdated": "2026-04-06T17:56:53.123Z",
+  "lastChecked": "2026-04-06T17:56:53.123Z",
+  "summaries": [
+    {
+      "date": "2026-04-06",
+      "platforms": [
+        "facebook",
+        "x"
+      ],
+      "summary": "No recent social media activity was found for Connie Rossi.",
+      "sources": [
+        {
+          "platform": "facebook",
+          "url": "https://www.facebook.com/connierossiforjv/",
+          "snippet": "Connie Rossi for JV"
+        },
+        {
+          "platform": "web",
+          "url": "https://communityimpact.com/houston/cy-fair-jersey-village/election/2026/03/25/qa-meet-the-candidates-running-for-jersey-village-city-council-place-5/",
+          "snippet": "Q&A: Meet the candidates running for Jersey Village City Council Place 5 | Community Impact"
+        },
+        {
+          "platform": "web",
+          "url": "https://communityimpact.com/houston/cy-fair-jersey-village/election/2026/02/19/learn-who-filed-to-run-in-the-jersey-village-city-council-may-election/",
+          "snippet": "Learn who filed to run in the Jersey Village City Council May election | Community Impact"
+        },
+        {
+          "platform": "web",
+          "url": "https://communityimpact.com/houston/cy-fair/election/2024/05/04/connie-rossi-wins-jersey-village-city-council-race/",
+          "snippet": "Connie Rossi wins Jersey Village City Council race | Community Impact"
+        },
+        {
+          "platform": "web",
+          "url": "https://communityimpact.com/houston/cy-fair-jersey-village/election/2026/03/25/qa-meet-the-candidates-running-for-jersey-village-city-council-place-1/",
+          "snippet": "Q&A: Meet the candidates running for Jersey Village City Council Place 1 | Community Impact"
+        }
+      ]
+    }
+  ]
 }
