@@ -1,12 +1,48 @@
 {
   "candidateId": "connie-rossi",
-  "lastUpdated": "2026-04-06T18:46:28.223Z",
-  "lastChecked": "2026-04-06T18:46:28.223Z",
+  "lastUpdated": "2026-04-06T19:00:00.000Z",
+  "lastChecked": "2026-04-06T19:00:00.000Z",
   "summaries": [
     {
       "date": "2026-04-06",
-      "summary": "No recent public activity was found for Connie Rossi.",
-      "sources": []
+      "summary": "Rossi, the incumbent Place 4 council member first elected in May 2024 with 57.8% of the vote, is running unopposed for re-election. On her campaign website (connieforjv.org), she outlines priorities including continued support for police, fire, and EMS funding; street drainage repair and flood mitigation with collaboration across neighboring municipalities; preventative maintenance of water and wastewater facilities; government transparency and resident engagement; and economic development through innovative approaches to city revenue. Council meeting minutes from October 2025 show her actively participating in council business, including questioning city staff about resident notifications during water outages and voting unanimously with the full council on infrastructure, parks, and land transactions. No new 2026-cycle Q&A article from Community Impact was published for her race, consistent with her running unopposed.",
+      "sources": [
+        {
+          "platform": "web",
+          "url": "https://connieforjv.org/index.php/sample-page/",
+          "snippet": "Jersey Village Matters – Connie Rossi for JV (campaign platform page)"
+        },
+        {
+          "platform": "web",
+          "url": "https://connieforjv.org/",
+          "snippet": "Connie Rossi for JV – official campaign website"
+        },
+        {
+          "platform": "facebook",
+          "url": "https://www.facebook.com/connierossiforjv/",
+          "snippet": "Connie Rossi for JV – official campaign Facebook page"
+        },
+        {
+          "platform": "web",
+          "url": "https://communityimpact.com/houston/cy-fair/election/2024/05/04/connie-rossi-wins-jersey-village-city-council-race/",
+          "snippet": "Connie Rossi wins Jersey Village City Council race – Community Impact, May 2024"
+        },
+        {
+          "platform": "web",
+          "url": "https://communityimpact.com/houston/cy-fair-jersey-village/election/2026/02/19/learn-who-filed-to-run-in-the-jersey-village-city-council-may-election/",
+          "snippet": "Learn who filed to run in the Jersey Village City Council May election – Community Impact, February 2026"
+        },
+        {
+          "platform": "web",
+          "url": "https://www.jerseyvillage.gov/AgendaCenter/ViewFile/Minutes/_10202025-347",
+          "snippet": "Jersey Village City Council Regular Meeting Minutes – October 20, 2025"
+        },
+        {
+          "platform": "web",
+          "url": "https://communityimpact.com/houston/cy-fair-jersey-village/government/2026/01/08/preview-jersey-village-city-council-to-talk-traffic-congestion-may-election/",
+          "snippet": "Preview: Jersey Village City Council to talk traffic congestion, May election – Community Impact, January 2026"
+        }
+      ]
     }
   ]
 }
