@@ -14,22 +14,29 @@ async function fetchSocialSummary(candidateName) {
   const response = await client.messages.create({
     model: 'claude-sonnet-4-20250514',
     max_tokens: 1024,
+    system:
+      'You are a neutral, factual voter information assistant. When providing summaries, ' +
+      'respond with ONLY the final summary text — no preamble, no "I searched for...", ' +
+      'no "Based on my research...", no meta-commentary about the search process. ' +
+      'Write in a journalistic third-person voice.',
     tools: [{ type: 'web_search_20250305', name: 'web_search' }],
     messages: [{
       role: 'user',
       content:
         `Search for recent social media posts and public activity by ${candidateName}, ` +
         `a candidate for Jersey Village, Texas city council in the May 2026 election. ` +
-        `Check Facebook and X/Twitter for any recent posts. ` +
-        `Provide a neutral, factual 2-3 sentence summary of their recent public posts ` +
-        `related to the election or local city issues. ` +
-        `If no recent activity is found, state that clearly. ` +
-        `Include URLs to any specific posts you find.`
+        `Check Facebook and X/Twitter for recent posts related to the election or local issues.\n\n` +
+        `Respond with ONLY a neutral, factual 2-3 sentence summary in third person. ` +
+        `If no recent activity is found, respond with exactly: ` +
+        `"No recent social media activity was found for ${candidateName}."`
     }]
   });
 
+  // Take only the LAST text block — it's the final summary after all tool calls
   const textBlocks = response.content.filter(b => b.type === 'text');
-  const summaryText = textBlocks.map(b => b.text).join('\n').trim();
+  const summaryText = textBlocks.length > 0
+    ? textBlocks[textBlocks.length - 1].text.trim()
+    : '';
 
   const sources = [];
   for (const block of response.content) {
