@@ -48,6 +48,34 @@
     return name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
   }
 
+  function truncate(str, max) {
+    if (!str) return '';
+    return str.length > max ? str.slice(0, max - 1).trimEnd() + '\u2026' : str;
+  }
+
+  function hostname(url) {
+    try {
+      return new URL(url).hostname.replace(/^www\./, '');
+    } catch {
+      return url;
+    }
+  }
+
+  function sourceLabel(src) {
+    // Prefer the snippet (page title), fall back to hostname
+    const raw = src.snippet && src.snippet.trim()
+      ? src.snippet.trim()
+      : hostname(src.url);
+    // Strip common trailing site names like " | Community Impact" for cleaner display
+    const cleaned = raw.replace(/\s*[|\u2014\u2013-]\s*[^|]+$/, '').trim() || raw;
+    return truncate(cleaned, 65);
+  }
+
+  function platformLabel(platform) {
+    const map = { facebook: 'Facebook', x: 'X', twitter: 'X', web: 'Web' };
+    return map[platform] || 'Web';
+  }
+
   // --- Data Loading ---
 
   async function loadData() {
@@ -311,15 +339,31 @@
       : '';
 
     const entries = data.summaries.map(s => {
-      const sources = (s.sources || []).map(src =>
-        `<a href="${esc(src.url)}" target="_blank" rel="noopener">${esc(src.platform || 'Link')}</a>`
-      ).join(' \u00b7 ');
+      const sources = (s.sources || []).map(src => {
+        const label = sourceLabel(src);
+        const platform = platformLabel(src.platform);
+        const host = hostname(src.url);
+        return `
+          <li class="source-item">
+            <span class="source-platform">${esc(platform)}</span>
+            <a href="${esc(src.url)}" target="_blank" rel="noopener" class="source-link">
+              <span class="source-title">${esc(label)}</span>
+              <span class="source-host">${esc(host)}</span>
+            </a>
+          </li>
+        `;
+      }).join('');
 
       return `
         <div class="social-entry">
           <div class="social-date">${esc(s.date)}</div>
           <p class="social-summary-text">${esc(s.summary)}</p>
-          ${sources ? `<div class="social-sources">Sources: ${sources}</div>` : ''}
+          ${sources ? `
+            <div class="social-sources">
+              <div class="social-sources-label">Sources</div>
+              <ul class="source-list">${sources}</ul>
+            </div>
+          ` : ''}
         </div>
       `;
     }).join('');
