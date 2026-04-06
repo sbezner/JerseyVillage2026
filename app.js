@@ -298,9 +298,49 @@
     }
   }
 
+  function splitBioIntoParagraphs(bio, sentencesPerParagraph = 2) {
+    if (!bio) return [];
+    // Split on sentence boundaries while keeping the punctuation intact.
+    const sentences = bio.match(/[^.!?]+[.!?]+(?:\s|$)/g) || [bio];
+    const trimmed = sentences.map(s => s.trim()).filter(Boolean);
+    const paragraphs = [];
+    for (let i = 0; i < trimmed.length; i += sentencesPerParagraph) {
+      paragraphs.push(trimmed.slice(i, i + sentencesPerParagraph).join(' '));
+    }
+    return paragraphs;
+  }
+
+  function buildBioFacts(candidate, race) {
+    const facts = [];
+    facts.push({ label: 'Race', value: race.title });
+    if (candidate.incumbent) {
+      facts.push({ label: 'Status', value: 'Incumbent' });
+    } else {
+      facts.push({ label: 'Status', value: 'Challenger' });
+    }
+    if (candidate.unopposed) {
+      facts.push({ label: 'Field', value: 'Unopposed' });
+    }
+    return facts;
+  }
+
   function renderBio(candidate, race) {
+    const paragraphs = splitBioIntoParagraphs(candidate.bio, 2);
+    const paragraphHtml = paragraphs.length > 0
+      ? paragraphs.map(p => `<p class="bio-paragraph">${esc(p)}</p>`).join('')
+      : '<p class="bio-paragraph no-contact">No biographical information available yet.</p>';
+
+    const facts = buildBioFacts(candidate, race);
+    const factsHtml = facts.map(f => `
+      <div class="bio-fact">
+        <span class="bio-fact-label">${esc(f.label)}</span>
+        <span class="bio-fact-value">${esc(f.value)}</span>
+      </div>
+    `).join('');
+
     $detailPanel.innerHTML = `
-      <p class="bio-text">${esc(candidate.bio)}</p>
+      <div class="bio-facts">${factsHtml}</div>
+      <div class="bio-body">${paragraphHtml}</div>
     `;
   }
 

@@ -388,6 +388,55 @@ body {
 }
 
 /* ========== Bio ========== */
+.bio-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.bio-fact {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--color-bg);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+
+.bio-fact-label {
+  font-weight: 600;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.68rem;
+}
+
+.bio-fact-value {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.bio-body {
+  max-width: 68ch;
+}
+
+.bio-paragraph {
+  line-height: 1.8;
+  color: var(--color-text);
+  font-size: 0.97rem;
+  margin-bottom: 14px;
+}
+
+.bio-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Legacy class — kept for any older callers */
 .bio-text {
   line-height: 1.85;
   color: var(--color-text);
