@@ -31,19 +31,22 @@ Edit `data/candidates.json` with candidate bios, positions, and contact info. Th
 
 ## Reusable Claude.ai Prompts
 
-Four named prompts live in `prompts/` for refreshing site content via Claude.ai (free, high quality, editorially controlled):
+Five named prompts live in `prompts/` for refreshing and validating site content via Claude.ai (free, high quality, editorially controlled):
 
 - **[`prompts/recent-activity-request.md`](prompts/recent-activity-request.md)** — refresh the Recent Activity tab for all 5 candidates in one shot. Use weekly or after notable events.
 - **[`prompts/bio-update-request.md`](prompts/bio-update-request.md)** — strengthen the Bio tab for all 5 candidates in one shot. Use occasionally when new biographical info surfaces.
 - **[`prompts/contact-update-request.md`](prompts/contact-update-request.md)** — refresh the Contact tab (email, website, facebook, twitter) for all 5 candidates. Use when a candidate adds a new public channel.
 - **[`prompts/positions-update-request.md`](prompts/positions-update-request.md)** — refresh the Positions tab (stances on local issues) for all 5 candidates. Use after candidate forums, debates, or new news articles.
+- **[`prompts/qa-review-request.md`](prompts/qa-review-request.md)** — run a thorough QA review of the live site. Returns a prioritized issue report (prose, not JSON). Use before major releases or after content refreshes.
 
-All four follow the same workflow:
+The four refresh prompts follow the same workflow:
 1. Open the prompt file and copy the prompt
 2. Paste it into https://claude.ai (web search enabled)
 3. Wait ~2 minutes for the combined JSON response
 4. Hand the JSON back to Claude Code (or manually edit the relevant data file)
 5. Commit and push — GitHub Pages auto-deploys
+
+The QA prompt follows the same first three steps but returns a prose issue report instead of JSON; hand the report back to Claude Code for triage and fixes.
 
 ## Automated Social Summaries (currently manual-only)
 
