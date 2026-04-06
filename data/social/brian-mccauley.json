@@ -1,12 +1,33 @@
 {
   "candidateId": "brian-mccauley",
-  "lastUpdated": "2026-04-06T18:46:28.223Z",
-  "lastChecked": "2026-04-06T18:46:28.223Z",
+  "lastUpdated": "2026-04-06T19:00:00.000Z",
+  "lastChecked": "2026-04-06T19:00:00.000Z",
   "summaries": [
     {
       "date": "2026-04-06",
-      "summary": "No recent public activity was found for Brian McCauley.",
-      "sources": []
+      "summary": "In a March 25, 2026 Community Impact Q&A, McCauley identified implementing a Pay-As-You-Go (PayGo) funding model as his top priority, describing a plan to phase in a Fort Worth-style PayGo approach over 5 to 10 years for infrastructure and capital projects in order to reduce debt and prevent future tax increases. He described aging infrastructure combined with growing debt as the city's biggest challenge, proposing modest across-the-board budget efficiencies of roughly five cents per dollar spent in each department while shifting to pay-as-you-go financing. McCauley, a Jersey Village resident since 2011 and senior arbitration manager at a large auto auction company, also cited his service on the 2024 Jersey Village Charter Review Commission and said he would draw on his arbitration experience to foster open dialogue and consensus on the council.",
+      "sources": [
+        {
+          "platform": "web",
+          "url": "https://communityimpact.com/houston/cy-fair-jersey-village/election/2026/03/25/qa-meet-the-candidates-running-for-jersey-village-city-council-place-5/",
+          "snippet": "Q&A: Meet the candidates running for Jersey Village City Council Place 5 — Community Impact, March 25, 2026"
+        },
+        {
+          "platform": "facebook",
+          "url": "https://www.facebook.com/brianmccauleyforjerseyvillage",
+          "snippet": "Brian McCauley for Jersey Village — campaign Facebook page"
+        },
+        {
+          "platform": "web",
+          "url": "https://communityimpact.com/houston/cy-fair-jersey-village/election/2026/02/19/learn-who-filed-to-run-in-the-jersey-village-city-council-may-election/",
+          "snippet": "Learn who filed to run in the Jersey Village City Council May election — Community Impact, February 19, 2026"
+        },
+        {
+          "platform": "web",
+          "url": "https://www.jerseyvillage.gov/m/newsflash/home/detail/70",
+          "snippet": "General and Special Election – May 2, 2026 — City of Jersey Village official site"
+        }
+      ]
     }
   ]
 }
