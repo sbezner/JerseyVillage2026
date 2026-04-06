@@ -1,42 +1,6 @@
 {
   "candidateId": "michael-brittain",
-  "lastUpdated": "2026-04-06T17:56:53.123Z",
-  "lastChecked": "2026-04-06T17:56:53.123Z",
-  "summaries": [
-    {
-      "date": "2026-04-06",
-      "platforms": [
-        "facebook",
-        "x"
-      ],
-      "summary": "No recent social media activity was found for Michael Brittain.",
-      "sources": [
-        {
-          "platform": "web",
-          "url": "https://www.jerseyvillage.gov/m/newsflash/home/detail/70",
-          "snippet": "General and Special Election - May 2nd, 2026 • Jersey Village, TX"
-        },
-        {
-          "platform": "web",
-          "url": "https://communityimpact.com/houston/cy-fair-jersey-village/election/2026/03/25/qa-meet-the-candidates-running-for-jersey-village-city-council-place-1/",
-          "snippet": "Q&A: Meet the candidates running for Jersey Village City Council Place 1 | Community Impact"
-        },
-        {
-          "platform": "x",
-          "url": "https://www.jerseyvillagetx.com/page/city.elections.notices",
-          "snippet": "City of Jersey Village, Texas"
-        },
-        {
-          "platform": "web",
-          "url": "https://communityimpact.com/houston/cy-fair-jersey-village/election/2026/03/25/qa-meet-the-candidates-running-for-jersey-village-city-council-place-5/",
-          "snippet": "Q&A: Meet the candidates running for Jersey Village City Council Place 5 | Community Impact"
-        },
-        {
-          "platform": "web",
-          "url": "https://www.jerseyvillage.gov/AgendaCenter/ViewFile/Agenda/_02092026-372",
-          "snippet": "CITY OF JERSEY VILLAGE, TEXAS"
-        }
-      ]
-    }
-  ]
+  "lastUpdated": null,
+  "lastChecked": null,
+  "summaries": []
 }

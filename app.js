@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const DETAIL_TABS = ['Bio', 'Positions', 'Contact', 'Social Activity'];
+  const DETAIL_TABS = ['Bio', 'Positions', 'Contact', 'Recent Activity'];
   const socialCache = new Map();
 
   let candidatesData = null;
@@ -79,10 +79,12 @@
   function isNoActivitySummary(text) {
     if (!text) return true;
     const t = text.toLowerCase();
-    return t.startsWith('no recent social media activity')
+    return t.startsWith('no recent public activity')
+      || t.startsWith('no recent social media activity')
+      || t.startsWith('no public activity')
       || t.startsWith('no social media activity')
-      || (t.includes('unable to find') && t.includes('social media'))
-      || (t.includes('no recent') && t.includes('social media'))
+      || (t.includes('unable to find') && (t.includes('public activity') || t.includes('social media')))
+      || (t.includes('no recent') && (t.includes('public activity') || t.includes('social media')))
       || t.startsWith("i'll search")
       || t.startsWith('i will search')
       || t.startsWith('let me search')
@@ -292,7 +294,7 @@
       case 'Bio': renderBio(candidate, race); break;
       case 'Positions': renderPositions(candidate, race); break;
       case 'Contact': renderContact(candidate, race); break;
-      case 'Social Activity': renderSocial(candidate); break;
+      case 'Recent Activity': renderSocial(candidate); break;
     }
   }
 
@@ -336,11 +338,11 @@
   }
 
   async function renderSocial(candidate) {
-    $detailPanel.innerHTML = '<p class="loading">Loading social media activity...</p>';
+    $detailPanel.innerHTML = '<p class="loading">Loading recent activity...</p>';
 
     const data = await loadSocialData(candidate.id);
 
-    if (activeCandidateId !== candidate.id || activeDetailTab !== 'Social Activity') return;
+    if (activeCandidateId !== candidate.id || activeDetailTab !== 'Recent Activity') return;
 
     // Determine "last checked" timestamp — prefer lastChecked, fall back to lastUpdated
     const lastCheckedIso = (data && (data.lastChecked || data.lastUpdated)) || null;
@@ -350,7 +352,7 @@
 
     const statusLine = lastCheckedLabel
       ? `<div class="social-status-line"><span class="social-status-dot"></span>Last checked: <strong>${esc(lastCheckedLabel)}</strong> · Updates daily</div>`
-      : `<div class="social-status-line">Social media monitoring begins soon</div>`;
+      : `<div class="social-status-line">Activity monitoring begins soon</div>`;
 
     // Filter out "no activity" entries and any narrated garbage
     const activeEntries = (data?.summaries || []).filter(s => !isNoActivitySummary(s.summary));
@@ -359,8 +361,8 @@
       $detailPanel.innerHTML = `
         ${statusLine}
         <div class="social-empty-state">
-          <p>No recent social media activity detected for <strong>${esc(candidate.name)}</strong>.</p>
-          <p class="social-empty-sub">This page checks Facebook and X/Twitter daily and will highlight new activity here as it appears.</p>
+          <p>No recent public activity detected for <strong>${esc(candidate.name)}</strong>.</p>
+          <p class="social-empty-sub">This page checks news, campaign sites, and social media daily and will highlight new activity here as it appears.</p>
         </div>
       `;
       return;
