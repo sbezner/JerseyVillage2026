@@ -1,6 +1,12 @@
 # Jersey Village 2026 Election Guide
 
-Nonpartisan voter information site for the **May 2, 2026** City of Jersey Village general election.
+Nonpartisan voter information site for the **May 2, 2026** City of Jersey Village general election. Live at **https://sbezner.github.io/JerseyVillage2026/**.
+
+## Architecture at a glance
+
+A single-page static site built with vanilla HTML, CSS, and JavaScript — no build step, no framework, no backend. Candidate and election content lives in flat JSON files in `data/`. Content is refreshed manually via four reusable Claude.ai prompts in `prompts/` (free and editorially controlled). The site is hosted free on GitHub Pages and auto-deploys on every push to `main`.
+
+For the full architecture, conventions, design decisions, and a step-by-step guide to duplicating this pattern for another election, see **[`CLAUDE.md`](CLAUDE.md)**.
 
 ## Races
 
@@ -55,9 +61,24 @@ To trigger manually: Actions tab > "Update Social Summaries" > "Run workflow".
 To re-enable the daily cron: uncomment the `schedule:` block in
 `.github/workflows/social-update.yml`.
 
+## Reusing this for another election
+
+This site is designed to be cloned and adapted for any small-scale election microsite. The high-level steps:
+
+1. Clone the repo and rename it
+2. Update `data/candidates.json` with the new candidates (keep the schema)
+3. Update `data/election.json` with new dates and polling info
+4. Replace or remove `data/proposition-a.json` if there's no ballot measure
+5. Reset `data/social/*.json` to seed state for the new candidates
+6. Update each prompt in `prompts/` with the new candidate list and context
+7. Update `CLAUDE.md` with the new project context (keep the gotchas section)
+8. Configure GitHub Pages and push to `main`
+
+See **[`CLAUDE.md`](CLAUDE.md)** for the full duplication guide, including all the architectural conventions, hard-won design decisions, and gotchas you'll want to know about (Facebook walls, Brave Search limitations, the abbreviation-splitting bug, container width gotcha, etc.).
+
 ## Tech Stack
 
 - Vanilla HTML, CSS, JavaScript (no build step)
 - Flat JSON data files
-- GitHub Pages hosting
-- GitHub Actions + Anthropic API for daily social summaries
+- GitHub Pages hosting (Deploy from a branch → main / root)
+- Optional: GitHub Actions + Anthropic API for automated social summaries (currently manual-only)
