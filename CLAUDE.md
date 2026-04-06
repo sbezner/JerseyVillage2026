@@ -143,6 +143,149 @@ LLM knows what's already there and only updates with new verified info.
 Each prompt forbids fabrication and instructs the LLM to preserve known
 values that can't be improved.
 
+## Applying refresh JSON from Claude.ai (the apply step)
+
+When the user pastes a JSON response from one of the four prompts, the
+correct apply path depends on the JSON shape. **Identify which prompt
+produced it by inspecting the keys**, then follow the matching apply
+procedure below.
+
+### Identifying which prompt produced a JSON response
+
+All four prompt outputs share the top-level shape:
+
+```json
+{
+  "lastUpdated": "...",
+  "candidates": {
+    "michael-brittain": { ... },
+    "curt-beasley":     { ... },
+    "connie-rossi":     { ... },
+    "brian-mccauley":   { ... },
+    "steven-gill":      { ... }
+  }
+}
+```
+
+Determine the prompt by which key is present **inside each candidate's
+object**:
+
+| Inner key | Prompt | Updates | Top-level extras |
+|---|---|---|---|
+| `summary` + `sources` (and `date`) | `Recent_Activity_Request` | `data/social/{id}.json` | Also has `lastChecked` at top level |
+| `bio` | `Bio_Update_Request` | `bio` field in `data/candidates.json` | none |
+| `contact` (object with email/website/facebook/twitter) | `Contact_Update_Request` | `contact` object in `data/candidates.json` | none |
+| `positions` (array of `{topic, statement}`) | `Positions_Update_Request` | `positions` array in `data/candidates.json` | none |
+
+If you see a shape that doesn't match any of these, ask the user before
+applying anything.
+
+### Apply procedure: Recent_Activity_Request → `data/social/*.json`
+
+For each candidate in `data.candidates`:
+
+1. Build a new entry object:
+   ```json
+   {
+     "date": "<YYYY-MM-DD from data.lastUpdated or today>",
+     "summary": "<the candidate's summary>",
+     "sources": [ /* the candidate's sources array */ ]
+   }
+   ```
+2. Read `data/social/{candidateId}.json`
+3. **If the new summary matches the most recent stored summary** AND both
+   are "no activity" responses (start with "No recent public activity" or
+   similar — see `isNoActivitySummary` in `app.js`), **only update
+   `lastChecked`** at the top level. Don't prepend a duplicate entry.
+4. Otherwise prepend the new entry to `summaries`, cap the array at 14
+   entries, set `lastUpdated` and `lastChecked` to the new ISO timestamp.
+5. Write the file back.
+6. Repeat for all 5 candidates.
+7. Single commit covering all 5 files.
+
+The Anthropic API script `scripts/fetch-social.mjs` already implements this
+logic — refer to it for the exact dedup behavior.
+
+### Apply procedure: Bio_Update_Request → `data/candidates.json`
+
+For each candidate in `data.candidates`:
+
+1. Find the candidate object in `data/candidates.json` by walking
+   `races[].candidates[]` and matching `id`
+2. Replace the `bio` field with the new value
+3. Do NOT touch any other field on the candidate (positions, contact,
+   incumbent, unopposed, etc.)
+4. Repeat for all 5 candidates
+5. Validate the file parses: `node -e "JSON.parse(require('fs').readFileSync('data/candidates.json','utf8'))"`
+6. Single commit
+
+### Apply procedure: Contact_Update_Request → `data/candidates.json`
+
+For each candidate in `data.candidates`:
+
+1. Find the candidate by `id` in `races[].candidates[]`
+2. Replace the entire `contact` object with the new one (the new object
+   should have all 4 fields: `email`, `website`, `facebook`, `twitter`,
+   each either a string or `null`)
+3. Do NOT touch any other field
+4. Repeat for all 5 candidates
+5. Validate JSON parses
+6. Single commit
+
+If the new JSON nulls out a previously-known value, this is unusual.
+Double-check with the user before applying — the prompt instructs the LLM
+to preserve known values.
+
+### Apply procedure: Positions_Update_Request → `data/candidates.json`
+
+For each candidate in `data.candidates`:
+
+1. Find the candidate by `id` in `races[].candidates[]`
+2. Replace the entire `positions` array with the new one (each entry must
+   have `topic` and `statement` strings)
+3. Do NOT touch any other field
+4. Verify each candidate has 2-5 positions (the prompt's cardinality rule)
+5. Repeat for all 5 candidates
+6. Validate JSON parses
+7. Single commit
+
+### After any apply procedure
+
+1. **Validate JSON parses** before committing — `candidates.json` is
+   structured and a stray comma or quote will brick the site
+2. **Run the full git merge flow:**
+   ```bash
+   git add <changed files>
+   git commit -m "<message>"
+   git push -u origin <feature-branch>
+   git push origin <feature-branch>:main
+   git checkout main
+   git pull origin main
+   git merge <feature-branch>
+   git push origin main
+   git checkout <feature-branch>
+   ```
+3. **Commit message format:** `chore: refresh <thing> from <Prompt_Name>` —
+   list which candidates changed in the body (e.g. "Brittain: 4 positions
+   (was 3) — added Economic Development")
+4. **Always include the session URL in the trailer.**
+
+### Common gotchas applying these JSONs
+
+- The user may paste a JSON without the surrounding markdown code fence.
+  Handle both — strip ` ```json ` fencing if present.
+- The order of candidate keys in the response is not guaranteed. Always
+  match by `id`, never by position.
+- The user-provided JSON sometimes has slight inline-URL artifacts in
+  text fields (e.g. "His campaign website is a Facebook page (...)"). For
+  Recent Activity summaries, strip these awkward inline URLs since the
+  sources array already handles attribution.
+- If the JSON only includes a subset of candidates, that's a partial
+  update — apply only those. Ask the user if it looks intentional.
+- If a JSON value is `null`, treat it as "not provided" — do NOT overwrite
+  an existing non-null value with `null` unless the prompt is
+  Contact_Update_Request and the user explicitly wants to clear a field.
+
 ## API workflow (currently disabled)
 
 `scripts/fetch-social.mjs` is a Node.js script that calls the Anthropic API
