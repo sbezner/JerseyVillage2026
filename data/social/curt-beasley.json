@@ -1,12 +1,33 @@
 {
   "candidateId": "curt-beasley",
-  "lastUpdated": "2026-04-06T18:46:28.223Z",
-  "lastChecked": "2026-04-06T18:46:28.223Z",
+  "lastUpdated": "2026-04-06T19:00:00.000Z",
+  "lastChecked": "2026-04-06T19:00:00.000Z",
   "summaries": [
     {
       "date": "2026-04-06",
-      "summary": "No recent public activity was found for Curt Beasley.",
-      "sources": []
+      "summary": "In a March 25, 2026 Community Impact Q&A, Beasley named fiscal responsibility as his top priority, citing his construction and land development background and stating his intent to scrutinize the City Hall remodel, which he characterized as being priced at more than triple what it should cost. He also alleged the city overspent by five million dollars on the golf clubhouse and convention center project against a nine million dollar budget, and said he would request a forensic accountant and construction professional to review those payments if elected. Beasley identified flawed vendor selection processes for construction projects as the city's biggest structural challenge and called for evaluating pricing on both infrastructure and amenities to free up additional funds.",
+      "sources": [
+        {
+          "platform": "web",
+          "url": "https://communityimpact.com/houston/cy-fair-jersey-village/election/2026/03/25/qa-meet-the-candidates-running-for-jersey-village-city-council-place-1/",
+          "snippet": "Q&A: Meet the candidates running for Jersey Village City Council Place 1 — Community Impact, March 25, 2026"
+        },
+        {
+          "platform": "facebook",
+          "url": "https://www.facebook.com/profile.php?id=61579467652553",
+          "snippet": "Curt Beasley for Jersey Village City Council Place 1 — campaign Facebook page"
+        },
+        {
+          "platform": "web",
+          "url": "https://beta2.communityimpact.com/houston/cy-fair-jersey-village/election/2026/02/19/learn-who-filed-to-run-in-the-jersey-village-city-council-may-election/",
+          "snippet": "Learn who filed to run in the Jersey Village City Council May election — Community Impact, February 19, 2026"
+        },
+        {
+          "platform": "web",
+          "url": "https://www.jerseyvillage.gov/m/newsflash/home/detail/70",
+          "snippet": "General and Special Election – May 2, 2026 — City of Jersey Village official site"
+        }
+      ]
     }
   ]
 }
